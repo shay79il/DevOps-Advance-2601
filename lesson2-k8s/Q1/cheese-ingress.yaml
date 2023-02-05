@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cheese-ingress
+spec:
+  tls:
+    - hosts:
+        - ams.cheese.com
+      secretName: cheese-secret
+  rules:
+    - host: ams.cheese.com
+      http:
+        paths:
+          - path: /cheddar
+            pathType: Prefix
+            backend:
+              service:
+                name: cheddar-svc
+                port:
+                  number: 80
+          - path: /gauda
+            pathType: Prefix
+            backend:
+              service:
+                name: gauda-svc
+                port:
+                  number: 80

@@ -1,0 +1,6 @@
+Hello There :) Error: failed to start container "nginx-pod-configmap": Error response from daemon: failed to create shim task: OCI runtime create
+failed: runc create failed: unable to start container process: error during container init: error mounting
+"/var/lib/kubelet/pods/e673bb94-17f1-4042-a940-e5d3afd1980b/volume-subpaths/nginx-volume/nginx-pod-configmap/0" to rootfs at "/usr/share/nginx/html":
+mount /var/lib/kubelet/pods/e673bb94-17f1-4042-a940-e5d3afd1980b/volume-subpaths/nginx-volume/nginx-pod-configmap/0:/usr/share/nginx/html (via
+/proc/self/fd/6), flags: 0x5001: not a directory: unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified
+host path exists and is the expected type
