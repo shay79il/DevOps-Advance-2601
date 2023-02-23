@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  # tls:
+  #   - hosts:
+  #       - mysql.services.com
+  #     secretName: ingress-secret
+  rules:
+    - host: mysql.services.com
+      http:
+        paths:
+          - path: /username
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-svc-username
+                port:
+                  number: 8081
+          - path: /password
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-svc-password
+                port:
+                  number: 8082
+          - path: /url
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-db-url
+                port:
+                  number: 8083

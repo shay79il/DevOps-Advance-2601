@@ -1,0 +1,12 @@
+k apply -f redis-master-deployment.yaml
+k apply -f redis-master-service.yaml
+k apply -f redis-slave-deployment.yaml
+k apply -f redis-slave-service.yaml
+k apply -f frontend-deployment.yaml
+k apply -f frontend-service.yaml
+k delete --force -f redis-master-deployment.yaml
+k delete --force -f redis-master-service.yaml
+k delete --force -f redis-slave-deployment.yaml
+k delete --force -f redis-slave-service.yaml
+k delete --force -f frontend-deployment.yaml
+k delete --force -f frontend-service.yaml
