@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-db-url
+  labels:
+    app: nginx
 spec:
   containers:
     - name: nginx

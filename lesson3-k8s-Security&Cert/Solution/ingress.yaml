@@ -11,24 +11,31 @@ spec:
     - host: mysql.services.com
       http:
         paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-svc-all
+                port:
+                  number: 80
           - path: /username
             pathType: Prefix
             backend:
               service:
                 name: nginx-svc-username
                 port:
-                  number: 8081
+                  number: 80
           - path: /password
             pathType: Prefix
             backend:
               service:
                 name: nginx-svc-password
                 port:
-                  number: 8082
+                  number: 80
           - path: /url
             pathType: Prefix
             backend:
               service:
                 name: nginx-db-url
                 port:
-                  number: 8083
+                  number: 80
