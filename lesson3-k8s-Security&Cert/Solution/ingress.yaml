@@ -17,25 +17,25 @@ spec:
               service:
                 name: nginx-svc-all
                 port:
-                  number: 80
+                  number: 8080
           - path: /username
             pathType: Prefix
             backend:
               service:
                 name: nginx-svc-username
                 port:
-                  number: 80
+                  number: 8081
           - path: /password
             pathType: Prefix
             backend:
               service:
                 name: nginx-svc-password
                 port:
-                  number: 80
+                  number: 8082
           - path: /url
             pathType: Prefix
             backend:
               service:
                 name: nginx-db-url
                 port:
-                  number: 80
+                  number: 8083

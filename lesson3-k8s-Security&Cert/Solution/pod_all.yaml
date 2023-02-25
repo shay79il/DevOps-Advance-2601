@@ -19,7 +19,8 @@ spec:
           cpu: "500m"
       volumeMounts:
         - name: secret-volume
-          mountPath: /usr/share/nginx/html 
+          # mountPath: /usr/share/nginx/html 
+          mountPath: /etc/creds
           readOnly: true
   volumes:
     - name: secret-volume
