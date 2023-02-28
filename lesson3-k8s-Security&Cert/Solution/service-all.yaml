@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: nginx-svc-all
 spec:
-  type: NodePort
   ports:
     - port: 8080
       targetPort: 80

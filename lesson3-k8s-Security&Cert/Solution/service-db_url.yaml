@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: nginx-svc-db-url
 spec:
-  type: NodePort
   ports:
     - port: 8083
       targetPort: 80

@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: nginx-svc-username
 spec:
-  type: NodePort
   ports:
     - port: 8081
       targetPort: 80
