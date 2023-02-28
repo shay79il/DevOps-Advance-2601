@@ -1,0 +1,12 @@
+apiVersion: v2
+name: wordpress-mysql
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+maintainers:
+  - email: shay79il@gmail.com
+    name: Shay
+
+home: https://github.com/shay79il/helm-chart
+icon: https://helm.sh/img/helm.svg
