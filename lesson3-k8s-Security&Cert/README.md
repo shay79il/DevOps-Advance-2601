@@ -45,17 +45,17 @@ kubectl config use-context user1-context
 ```bash
 
 # Create Private key 
-openssl genrsa -out services.key 2048
+openssl genrsa -out myk8s.key 2048
 
 # Create CSR
-openssl req -new -nodes -key services.key -out services.csr
+openssl req -new -nodes -key myk8s.key -out myk8s.csr
 
 # Add DNS name
-echo "subjectAltName=DNS:mysql.services.com" >> extfile.cnf
+echo "subjectAltName=DNS:myk8s.com" >> extfile.cnf
 
 # Send the created CSR from the previous step and send to the CA and get the final SIGNED crt
-openssl x509 -req -in services.csr -CA ~/.minikube/ca.crt -CAkey ~/.minikube/ca.key -CAcreateserial -out services.crt -extfile extfile.cnf -days 365
+openssl x509 -req -in myk8s.csr -CA ~/.minikube/ca.crt -CAkey ~/.minikube/ca.key -CAcreateserial -out myk8s.crt -extfile extfile.cnf -days 365
 
 # Create a secret to be used by the web-server ingress resource
-kubectl create secret tls tls-secret --key services.key --cert services.crt --certificate-authority ~/.minikube/ca.crt  -o yaml --dry-run=client > tls-secret.yaml
+kubectl create secret tls tls-secret --key myk8s.key --cert myk8s.crt --certificate-authority ~/.minikube/ca.crt  -o yaml --dry-run=client > tls-secret.yaml
 ```
