@@ -1,0 +1,22 @@
+1. cat <<EOF > redis.yaml
+metrics:
+  enabled: true
+EOF
+
+2. helm install redis bitnami/redis -f redis.yaml
+
+3. cat <<EOF > prometheus.yaml
+serverFiles:
+  prometheus.yml:
+    scrape_configs:
+        - job_name: 'redis'
+          static_configs:
+          - targets: ['redis-metrics.default:9121']
+server:
+  service:
+    type: NodePort
+EOF
+
+4. helm upgrade prometheus prometheus-community/prometheus --namespace monitoring -f prometheus.yaml
+
+5. Import to Grafana Dashboard ID number: 11835
